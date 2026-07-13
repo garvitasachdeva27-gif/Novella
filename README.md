@@ -16,26 +16,31 @@ engine or AI librarian.**
 - AI: Google Gemini API (`gemini-2.0-flash`)
 
 ## Project Structure
+
 novella/
+│
 ├── backend/
-│   ├── app.py             
-│   ├── routes.py          
-│   ├── prompts.py          
-│   ├── classifier.py      
-│   ├── escalation.py       
-│   ├── gemini_services.py  
-│   ├── utils.py           
-│   ├── requirements.txt
-│   ├── .env.example        
+│   ├── app.py                  # FastAPI app initialization & CORS setup
+│   ├── routes.py               # API endpoints (/chat, /health)
+│   ├── prompts.py              # Prompt templates + few-shot examples
+│   ├── classifier.py           # Intent/category classification (Gemini Call #1)
+│   ├── escalation.py           # Escalation logic & mock ticket generation
+│   ├── gemini_services.py      # Gemini API communication layer
+│   ├── utils.py                # Common helper functions
+│   ├── requirements.txt        # Python dependencies
+│   ├── .env.example            # Environment variable template
+│   │
 │   └── tests/
 │       ├── conftest.py
 │       ├── test_escalation.py
-│       └── test_cases.md   
+│       └── test_cases.md       # LLM behavior testing matrix
+│
 ├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-└── README.md
+│   ├── index.html              # Main webpage
+│   ├── style.css               # Styling
+│   └── script.js               # Frontend logic & API calls
+│
+└── README.md                   # Project documentation
 
 ## Setup
 
