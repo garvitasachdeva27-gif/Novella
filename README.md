@@ -18,19 +18,19 @@ engine or AI librarian.**
 ## Project Structure
 novella/
 ├── backend/
-│   ├── app.py              # FastAPI app creation + CORS config
-│   ├── routes.py           # /chat and /health endpoints
-│   ├── prompts.py          # Classifier + 6 specialized prompts (few-shot)
-│   ├── classifier.py       # Category classification (Gemini call #1)
-│   ├── escalation.py       # Rule-based escalation + mock ticket IDs
-│   ├── gemini_services.py  # Only file that talks to the Gemini SDK
-│   ├── utils.py            # Shared helpers
+│   ├── app.py             
+│   ├── routes.py          
+│   ├── prompts.py          
+│   ├── classifier.py      
+│   ├── escalation.py       
+│   ├── gemini_services.py  
+│   ├── utils.py           
 │   ├── requirements.txt
-│   ├── .env.example        # Copy to .env and add your real key
+│   ├── .env.example        
 │   └── tests/
 │       ├── conftest.py
 │       ├── test_escalation.py
-│       └── test_cases.md   # LLM behavior test matrix
+│       └── test_cases.md   
 ├── frontend/
 │   ├── index.html
 │   ├── style.css
