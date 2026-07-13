@@ -17,6 +17,7 @@ engine or AI librarian.**
 
 ## Project Structure
 
+```text
 novella/
 │
 ├── backend/
@@ -41,7 +42,7 @@ novella/
 │   └── script.js               # Frontend logic & API calls
 │
 └── README.md                   # Project documentation
-
+```
 ## Setup
 
 ### Backend
