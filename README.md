@@ -1,4 +1,4 @@
-# Novella — AI Customer Support Assistant
+# Novella — Library Support Assistant
 
 > "Where every question finds its next chapter."
 
