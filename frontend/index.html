@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novella — Where every question finds its next chapter</title>
+
+  <!-- Fonts:
+       Fraunces  -> display serif with warmth, used sparingly for the logo/headline
+       Newsreader -> reading serif, used for chat message text (feels like a page)
+       Work Sans -> quiet utility sans, used for buttons, chips, labels -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Newsreader:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon: temporary candle-glyph placeholder. Once you attach your
+       logo.png through the chat uploader, replace this line with:
+       <link rel="icon" type="image/png" href="logo.png" /> -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%232e1f17'/%3E%3Cpath d='M8 30 L32 30 L28 34 L12 34 Z' fill='%23c9a227'/%3E%3Crect x='10' y='22' width='20' height='8' rx='1' fill='%234a3428'/%3E%3Crect x='18' y='10' width='4' height='12' rx='2' fill='%23f5ede0'/%3E%3Cpath d='M20 4 C22 8 22 10 20 12 C18 10 18 8 20 4 Z' fill='%23c9a227'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- =========================================================
+       LANDING VIEW
+       This is the first thing visitors see. Its only job is to
+       set the mood and offer one clear action: Start Chat.
+  ========================================================== -->
+  <section id="landing-view" class="view">
+    <!-- Ambient rain-on-window layer. Purely decorative, so it's
+         hidden from screen readers with aria-hidden. -->
+    <div class="candle-glow" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="embers" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="landing-content">
+      <!-- LOGO SWAP POINT: once logo.png is uploaded and placed in this
+           frontend folder, replace this <div> with:
+           <div class="logo-mark"><img src="logo.png" alt="Novella logo" /></div> -->
+      <div class="logo-mark" aria-hidden="true">
+        <!-- simple inline candle+book glyph, keeps us off external icon libraries -->
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M8 30 L32 30 L28 34 L12 34 Z" fill="var(--gold)"/>
+          <rect x="10" y="22" width="20" height="8" rx="1" fill="var(--coffee)"/>
+          <rect id="flame-wick" x="18" y="10" width="4" height="12" rx="2" fill="var(--cream)"/>
+          <path id="flame" d="M20 4 C22 8 22 10 20 12 C18 10 18 8 20 4 Z" fill="var(--gold)"/>
+        </svg>
+      </div>
+
+      <h1 class="wordmark">Novella</h1>
+      <p class="tagline">Where every question finds its next chapter.</p>
+
+      <button id="start-chat-btn" class="btn-primary" type="button">
+        Start Chat
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CHAT VIEW
+       Hidden by default (see .hidden in CSS). script.js toggles
+       between the two views by adding/removing this class.
+  ========================================================== -->
+  <section id="chat-view" class="view hidden">
+    <header class="chat-header">
+      <button id="back-btn" class="btn-icon" type="button" aria-label="Back to landing page">
+        ←
+      </button>
+      <!-- LOGO SWAP POINT: once logo.png is uploaded, add here:
+           <img src="logo.png" alt="Novella logo" class="header-logo" /> -->
+      <div class="chat-header-text">
+        <h2>Novella Support</h2>
+        <p class="chat-subtitle">Usually replies in a moment</p>
+      </div>
+      <span class="header-flame" aria-hidden="true"></span>
+    </header>
+
+    <!-- aria-live="polite" means screen readers announce new messages
+         as they arrive, without interrupting whatever the user is doing -->
+    <ul id="chat-messages" class="chat-messages" aria-live="polite"></ul>
+
+    <!-- Typing indicator, shown only while we're "waiting" on a reply -->
+    <div id="typing-indicator" class="typing-indicator hidden" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+
+    <!-- Quick action chips: one-tap shortcuts into common categories -->
+    <div class="quick-actions" id="quick-actions">
+      <button class="chip" data-topic="Membership" type="button">📖 Membership</button>
+      <button class="chip" data-topic="Borrowing Books" type="button">📚 Borrowing Books</button>
+      <button class="chip" data-topic="Digital Library" type="button">💻 Digital Library</button>
+      <button class="chip" data-topic="Fines & Fees" type="button">💳 Fines & Fees</button>
+      <button class="chip" data-topic="Study Spaces" type="button">🪑 Study Spaces</button>
+      <button class="chip" data-topic="Library Events" type="button">🎭 Library Events</button>
+    </div>
+
+    <form id="chat-form" class="chat-input-bar">
+      <label for="chat-input" class="sr-only">Type your question</label>
+      <input
+        id="chat-input"
+        type="text"
+        autocomplete="off"
+        placeholder="Ask about membership, borrowing, fines…"
+      />
+      <button type="submit" class="btn-send" aria-label="Send message">
+        <!-- wax-seal style send button -->
+        <span class="seal">✦</span>
+      </button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
