@@ -101,7 +101,7 @@ function hideTyping() {
 // ---- Real bot reply, calling our FastAPI backend -----------------------
 // Change this to your deployed backend URL once you deploy (Step 3 below).
 // While developing locally, this points at uvicorn running on your machine.
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://novella-6j9x.onrender.com";
 
 async function getBotReply(userMessage) {
   try {
