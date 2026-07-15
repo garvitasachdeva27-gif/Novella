@@ -38,18 +38,15 @@ app = FastAPI(
 # ---------------------------------------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://novella-nu.vercel.app/"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Plug in every endpoint defined in routes.py
 app.include_router(router)
 
 
-# Lets us run this file directly with `python app.py` during
-# development, in addition to the standard `uvicorn app:app --reload`
 if __name__ == "__main__":
     import uvicorn
 

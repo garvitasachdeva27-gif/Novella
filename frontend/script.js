@@ -1,12 +1,5 @@
 // =========================================================
-// NOVELLA — Frontend Chat Logic (Milestone 2: UI only)
-//
-// IMPORTANT: getBotReply() below is a MOCK. It does not call
-// Gemini or our backend yet — that happens in Milestone 4.
-// It's written with the same shape (async, returns a string)
-// that the real version will have, so swapping it later is a
-// one-function change, not a rewrite.
-// =========================================================
+// NOVELLA — Frontend Chat Logic 
 
 // ---- Element references -----------------------------------------
 const startChatBtn = document.getElementById("start-chat-btn");
@@ -19,8 +12,7 @@ const chatInput = document.getElementById("chat-input");
 const typingIndicator = document.getElementById("typing-indicator");
 const quickActions = document.getElementById("quick-actions");
 
-// Tracks whether we've shown the welcome message yet, so we
-// don't repeat it if the user goes back and forth between views.
+
 let hasGreeted = false;
 
 // ---- View switching -----------------------------------------------
@@ -82,25 +74,6 @@ function hideTyping() {
   typingIndicator.classList.add("hidden");
 }
 
-// ---- Mock bot reply (placeholder for Milestone 4) ---------------------
-// In Milestone 4, this function's body will be replaced with a real
-// fetch() call to our FastAPI backend, e.g.:
-//
-//   async function getBotReply(userMessage) {
-//     const res = await fetch("/chat", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ message: userMessage }),
-//     });
-//     const data = await res.json();
-//     return data.reply;
-//   }
-//
-// The rest of the app (appendMessage, typing indicator, form handling)
-// will not need to change at all.
-// ---- Real bot reply, calling our FastAPI backend -----------------------
-// Change this to your deployed backend URL once you deploy (Step 3 below).
-// While developing locally, this points at uvicorn running on your machine.
 const API_BASE_URL = "https://novella-6j9x.onrender.com";
 
 async function getBotReply(userMessage) {
