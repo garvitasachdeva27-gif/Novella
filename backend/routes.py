@@ -31,6 +31,9 @@ class ChatResponse(BaseModel):
 def health_check():
     return {"status": "ok"}
 
+@router.head("/health")
+def health_head():
+    return Response(status_code=200)
 
 # ---- Main chat endpoint (classify -> escalate check -> respond) ---------
 @router.post("/chat", response_model=ChatResponse)
